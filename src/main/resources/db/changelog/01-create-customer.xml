@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <!-- ChangeSet to create the customer table -->
+    <changeSet id="createCustomerTable" author="Bobby">
+        <sql>
+            CREATE TABLE customer (
+            id BIGSERIAL PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            address VARCHAR(255) NOT NULL,
+            dob DATE NOT NULL,
+            active BOOLEAN NOT NULL,
+            modified_date DATE,
+            modified_by VARCHAR(255),
+            created_date DATE NOT NULL,
+            created_by VARCHAR(255) NOT NULL
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

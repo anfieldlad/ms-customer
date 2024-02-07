@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  app:
+    image: 'ms/customer:latest'
+    expose:
+      - "5005"
+    ports:
+      - "5005"
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=123456
+
+  db:
+    image: 'postgres:16.1-alpine'
+    expose:
+      - "5432"
+    ports:
+      - "5432"
+    container_name: db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
