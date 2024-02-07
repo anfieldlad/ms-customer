@@ -1,4 +1,4 @@
-# How To Run
+# How To Run Using Docker
 
 1. Pull to local
 2. in terminal: 'docker compose up'
